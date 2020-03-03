@@ -14,11 +14,6 @@ jobs:
     - name: QualityControl
       php: 7.4
       script:
-        - echo $TRAVIS_COMMIT
-        - echo $TRAVIS_TAG
-        - echo $TRAVIS_BRANCH
-        - echo $TRAVIS_BUILD_NUMBER
-        - echo $TRAVIS_REPO_SLUG
         - vendor/bin/phpcs
         - vendor/bin/psalm
         - vendor/bin/phpunit
@@ -27,5 +22,5 @@ jobs:
         - mkdir -p /tmp/dependency-check && composer require --dev -d/tmp/dependency-check maglnet/composer-require-checker:^2.1.0 && /tmp/dependency-check/vendor/bin/composer-require-checker check composer.json
     - name: BuildConflicts
       php: 7.4
-      if: branch = master
-      script: php build-conflicts.php
+      script:
+        - php build-conflicts.php
