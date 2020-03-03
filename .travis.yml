@@ -1,5 +1,9 @@
 language: php
 
+branches:
+  except:
+    - master
+
 cache:
   directories:
     - $HOME/.composer/cache/files
