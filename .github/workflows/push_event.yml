@@ -55,10 +55,10 @@ jobs:
         env:
           GITHUB_TOKEN: ACTIONS_RUNTIME_TOKEN
         run: |
-          ls -la vendor
-          composer install --no-progress --no-suggest
-          pwd
-          ls -la
-          php --version
-          cat build-confilicts.php
-          php build-confilicts.php
+#          ls -la vendor
+#          composer install --no-progress --no-suggest
+#          pwd
+#          ls -la
+#          php --version
+#          cat build-conflicts.php
+          php build-conflicts.php
