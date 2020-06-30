@@ -44,7 +44,7 @@ jobs:
 
       - name: Build advisories
         env:
-          GITHUB_TOKEN: TOKEN2
+          GITHUB_TOKEN: $TOKEN2
         run: |
           echo $GITHUB_TOKEN
           php build-conflicts.php
