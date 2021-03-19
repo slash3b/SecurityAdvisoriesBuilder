@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Roave\SecurityAdvisories;
 
+use Psl\Type;
 use InvalidArgumentException;
 use Safe\Exceptions\PcreException;
 use Safe\Exceptions\StringsException;
@@ -26,16 +27,8 @@ final class Version
 {
     private Flag $flag;
 
-    /**
-     * @var int[]
-     * @psalm-param list<int>
-     */
     private array $versionNumbers;
 
-    /**
-     * @var int[]
-     * @psalm-param list<int>
-     */
     private array $stabilityNumbers;
 
     /**
@@ -43,7 +36,9 @@ final class Version
      */
     private function __construct(array $matches)
     {
-        $this->versionNumbers = self::removeTrailingZeroes(...array_map('intval', explode('.', $matches['version'])));
+        $this->versionNumbers = Type\vec(Type\int())->coerce(
+            self::removeTrailingZeroes(...array_map('intval', explode('.', $matches['version'])))
+        );
 
         $this->flag = Flag::build($matches['flag'] ?? '');
 
@@ -52,8 +47,8 @@ final class Version
             return;
         }
 
-        $this->stabilityNumbers = self::removeTrailingZeroes(
-            ...array_map('intval', explode('.', $matches['stability_numbers']))
+        $this->stabilityNumbers =Type\vec(Type\int())->coerce(
+            self::removeTrailingZeroes(...array_map('intval', explode('.', $matches['stability_numbers'])))
         );
     }
 

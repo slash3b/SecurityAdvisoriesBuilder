@@ -22,6 +22,7 @@ namespace Roave\SecurityAdvisories;
 
 use InvalidArgumentException;
 
+use Psl\Type;
 use function array_map;
 use function array_values;
 use function assert;
@@ -35,14 +36,13 @@ final class Advisory
 {
     public PackageName $package;
 
-    /** @var list<VersionConstraint> */
     private array $branchConstraints;
 
-    /** @param list<VersionConstraint> $branchConstraints */
     private function __construct(PackageName $package, array $branchConstraints)
     {
         $this->package           = $package;
-        $this->branchConstraints = $this->sortVersionConstraints($branchConstraints);
+        $this->branchConstraints = Type\vec(Type\object(VersionConstraint::class))
+            ->coerce($this->sortVersionConstraints($branchConstraints));
     }
 
     /**

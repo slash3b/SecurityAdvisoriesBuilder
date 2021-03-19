@@ -19,13 +19,11 @@ use function str_replace;
  */
 final class PackageName
 {
-    /** @var non-empty-string */
     public string $packageName;
 
-    /** @param non-empty-string $packageName */
     private function __construct(string $packageName)
     {
-        $this->packageName = $packageName;
+        $this->packageName = non_empty_string()->coerce($packageName);
     }
 
     /**

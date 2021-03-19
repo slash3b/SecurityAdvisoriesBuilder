@@ -6,6 +6,7 @@ namespace Roave\SecurityAdvisories;
 
 use InvalidArgumentException;
 
+use Psl\Type;
 use function assert;
 use function in_array;
 use function is_string;
@@ -38,7 +39,7 @@ final class Boundary
     private function __construct(Version $version, string $limitType)
     {
         $this->version   = $version;
-        $this->limitType = $limitType;
+        $this->limitType = Type\non_empty_string()->coerce($limitType);
     }
 
     /**

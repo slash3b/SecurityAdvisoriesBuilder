@@ -20,19 +20,16 @@ declare(strict_types=1);
 
 namespace Roave\SecurityAdvisories\AdvisorySources;
 
+use \Psl\Type;
 use Generator;
 
 final class GetAdvisoriesFromMultipleSources implements GetAdvisories
 {
-    /**
-     * @var GetAdvisories[]
-     * @psalm-var list<GetAdvisories>
-     */
     private array $sources;
 
     public function __construct(GetAdvisories ...$sources)
     {
-        $this->sources = $sources;
+        $this->sources = Type\vec(Type\int())->coerce($sources);
     }
 
     /** {@inheritDoc} */
