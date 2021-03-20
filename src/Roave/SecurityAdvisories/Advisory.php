@@ -36,8 +36,12 @@ final class Advisory
 {
     public PackageName $package;
 
+    /** @var VersionConstraint[] $branchConstraints  */
     private array $branchConstraints;
 
+    /**
+     * @param VersionConstraint[] $branchConstraints
+     */
     private function __construct(PackageName $package, array $branchConstraints)
     {
         $this->package           = $package;

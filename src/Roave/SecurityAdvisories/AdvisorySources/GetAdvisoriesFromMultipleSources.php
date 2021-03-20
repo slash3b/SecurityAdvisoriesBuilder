@@ -25,6 +25,7 @@ use Psl\Type;
 
 final class GetAdvisoriesFromMultipleSources implements GetAdvisories
 {
+    /** @var GetAdvisories[] $sources */
     private array $sources;
 
     public function __construct(GetAdvisories ...$sources)

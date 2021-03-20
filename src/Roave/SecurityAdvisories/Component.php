@@ -37,6 +37,7 @@ final class Component
 {
     public PackageName $name;
 
+    /** @var Advisory[] $advisories */
     private array $advisories;
 
     public function __construct(PackageName $name, Advisory ...$advisories)

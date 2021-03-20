@@ -27,8 +27,10 @@ final class Version
 {
     private Flag $flag;
 
+    /** @var int[] $versionNumbers */
     private array $versionNumbers;
 
+    /** @var int[] $stabilityNumbers */
     private array $stabilityNumbers;
 
     /**
