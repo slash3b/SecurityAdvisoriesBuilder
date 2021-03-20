@@ -20,8 +20,8 @@ declare(strict_types=1);
 
 namespace Roave\SecurityAdvisories\AdvisorySources;
 
-use \Psl\Type;
 use Generator;
+use Psl\Type;
 
 final class GetAdvisoriesFromMultipleSources implements GetAdvisories
 {

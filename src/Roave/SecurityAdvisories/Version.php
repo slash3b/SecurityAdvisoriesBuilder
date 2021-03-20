@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace Roave\SecurityAdvisories;
 
-use Psl\Type;
 use InvalidArgumentException;
+use Psl\Type;
 use Safe\Exceptions\PcreException;
 use Safe\Exceptions\StringsException;
 
@@ -47,7 +47,7 @@ final class Version
             return;
         }
 
-        $this->stabilityNumbers =Type\vec(Type\int())->coerce(
+        $this->stabilityNumbers = Type\vec(Type\int())->coerce(
             self::removeTrailingZeroes(...array_map('intval', explode('.', $matches['stability_numbers'])))
         );
     }

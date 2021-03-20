@@ -5,8 +5,8 @@ declare(strict_types=1);
 namespace Roave\SecurityAdvisories;
 
 use InvalidArgumentException;
-
 use Psl\Type;
+
 use function assert;
 use function in_array;
 use function is_string;

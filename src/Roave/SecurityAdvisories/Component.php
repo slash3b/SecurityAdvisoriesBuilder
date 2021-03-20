@@ -21,8 +21,8 @@ declare(strict_types=1);
 namespace Roave\SecurityAdvisories;
 
 use LogicException;
-
 use Psl\Type;
+
 use function array_filter;
 use function array_map;
 use function array_merge;
